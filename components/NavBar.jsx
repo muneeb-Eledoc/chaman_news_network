@@ -14,12 +14,14 @@ const links = [
 
 const NavBar = ({yoffset}) => {
   return (
-    <div className={`flex flex-row-reverse min-h-[55px] py-2 bg-green-800 sticky top-0 flex-wrap ${yoffset > 117 && 'shadow-md'}`}>
-        {yoffset > 117 && <div className="shadow absolute left-2 top-[3px] ">
+    <div className={`flex z-50 flex-row-reverse min-h-[55px] py-2 bg-green-700 sticky top-0 flex-wrap `} style={{
+      boxShadow: yoffset > 117 ? '0 4px 7px rgba(0,0,0,0.35)' : '0 0px 0px rgba(0,0,0,0.35)'
+    }}>
+        {yoffset > 117 && <div className="shadow absolute left-2 top-[7px] ">
           <img className='h-11' src="/index.jpg" alt="" />
         </div>}
         {links.map((link)=>(
-            <div key={link} className='text-white py-3 px-3 mr-2 rounded hover:bg-yellow-500 cursor-pointer text-sm hidden md:block'>
+            <div key={link} className='text-white py-3 px-3 mr-2 rounded hover:bg-yellow-400 hover:text-black transition-all duration-300 hover:shadow cursor-pointer text-sm hidden md:block'>
                 {link}
             </div>
         ))}
