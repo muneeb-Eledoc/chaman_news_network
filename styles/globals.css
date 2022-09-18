@@ -2,6 +2,54 @@
 *{
     font-family: 'Noto Nastaliq Urdu', serif;
 }
+.newsPost__Content{
+    padding: 4px 10px;
+}
+.newsPost__Content p{
+    text-align: right !important;
+    line-height: 2.5;
+    font-size: 17px;
+}
+.newsPost__Content li{
+    text-align: right !important;
+    line-height: 2.5;
+    font-size: 17px;
+}
+.newsPost__Content figure{
+    /* background-color: aqua; */
+    padding: 10px 0px 10px 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+.newsPost__Content a{
+    text-decoration: none;
+    font-family: sans-serif;
+    color: rgb(2, 68, 192);
+    font-weight: 600;
+}
+.newsPost__Content img{
+    max-height: 440px;
+    max-width: 98%;
+}
+.newsPost__Content h1{
+    font-size: 34px;
+    font-weight: 700;
+}
+.newsPost__Content h2{
+    font-size: 28px;
+    font-weight: 600;
+}
+.newsPost__Content h3{
+    font-size: 24px;
+    font-weight: 500;
+}
+.newsPost__Content h4{
+    font-size: 20px;
+    font-weight: 500;
+}
 @tailwind base;
 @tailwind components;
+.back-button{
+    @apply bg-[#0F3460] shadow px-4 pb-3 pt-1 rounded font-thin text-white hover:bg-[#16213E] active:bg-[#533483]
+}
 @tailwind utilities;

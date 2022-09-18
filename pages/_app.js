@@ -17,11 +17,13 @@ function MyApp({ Component, pageProps }) {
 
   return <>
   <NextNProgress 
-  color="#47B5FF"
+  color="#367E18"
   startPosition={0.3}
   stopDelayMs={200}
   height={3}
-  showOnShallow={true}/>
+  showOnShallow={true}
+  options={{ showSpinner: false }}
+  />
   <Component yoffset={yoffset} {...pageProps} />
   </>
 }

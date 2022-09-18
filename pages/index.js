@@ -5,7 +5,7 @@ import { TopBar } from '../components/TopBar'
 import { sanityClient } from '../sanity'
 import { groq } from 'next-sanity'
 
-export default function Home({images, yoffset, latestVideo, moreVideos, headlineVideos}) {
+export default function Home({images, yoffset, latestVideo, moreVideos, headlineVideos, topStories, latestnews}) {
 
   return (
     <div className='bg-gray-50 m-0 p-0'>
@@ -18,7 +18,7 @@ export default function Home({images, yoffset, latestVideo, moreVideos, headline
       <div className='xl:container m-auto bg-white shadow-lg'>
         <TopBar yoffset={yoffset} />
         <NavBar yoffset={yoffset} />
-        <HomeContent headlineVideos={headlineVideos} moreVideos={moreVideos} latestVideo={latestVideo} images={images} />
+        <HomeContent topStories={topStories} latestnews={latestnews} headlineVideos={headlineVideos} moreVideos={moreVideos} latestVideo={latestVideo} images={images} />
       </div>
 
     </div>
@@ -52,15 +52,41 @@ export async function getServerSideProps(context) {
      isHeadline
    }| order(_createdAt desc)[0...4]`
 
+   const topStoriesQuery = groq`*[_type == 'newsPost' && isHeadline == true ] {
+    _id,
+     slug,
+     title,
+     publishedAt,
+     mainImage
+   }| order(_createdAt desc)[0...8]`
+
+   const latestQuery = groq`*[_type == 'newsPost' && isHeadline == false ] {
+    _id,
+     slug,
+     title,
+     publishedAt,
+     mainImage,
+     metadesc
+   }| order(_createdAt desc)[0...8]`
+
+  const topStories = await sanityClient.fetch(topStoriesQuery)
+
   const images = await sanityClient.fetch(query)
+
   const latestVideo = await sanityClient.fetch(latestVideoQuery)
+
+  const latestnews = await sanityClient.fetch(latestQuery)
+
   const moreVideos = await sanityClient.fetch(moreVideosQuery)
+
   const headlineVideos = await sanityClient.fetch(headlineVideosQuery)
 
   return {
     props: {
       images,
       latestVideo,
+      latestnews,
+      topStories,
       moreVideos,
       headlineVideos
     }
