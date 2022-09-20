@@ -61,12 +61,17 @@ export async function getServerSideProps(context) {
 
        
     const newspost = await sanityClient.fetch(query)
+    if(!newspost){
+      return {
+        props: {}
+      }
+    }
     const latestnews = await sanityClient.fetch(latestQuery)
 
     let tags = newspost.categories
     let slug = newspost.slug.current
 
-    const relatedNewsQuery = groq`*[_type == 'videos' &&  count(($tags)[@ in ^.tags]) > 0 && slug.current != $slug ] {
+    const relatedNewsQuery = groq`*[_type == 'newsPost' &&  count(($tags)[@ in ^.cat]) > 0 && slug.current != $slug ] {
         _id,
         slug,
         title,

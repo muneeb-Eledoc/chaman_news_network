@@ -5,7 +5,7 @@ import { TopBar } from '../components/TopBar'
 import { sanityClient } from '../sanity'
 import { groq } from 'next-sanity'
 
-export default function Home({images, yoffset, latestVideo, moreVideos, headlineVideos, topStories, latestnews}) {
+export default function Home({images, yoffset, latestVideo, moreVideos, headlineVideos, topStories, latestnews, headline}) {
 
   return (
     <div className='bg-gray-50 m-0 p-0'>
@@ -18,7 +18,7 @@ export default function Home({images, yoffset, latestVideo, moreVideos, headline
       <div className='xl:container m-auto bg-white shadow-lg'>
         <TopBar yoffset={yoffset} />
         <NavBar yoffset={yoffset} />
-        <HomeContent topStories={topStories} latestnews={latestnews} headlineVideos={headlineVideos} moreVideos={moreVideos} latestVideo={latestVideo} images={images} />
+        <HomeContent topStories={topStories} headline={headline} latestnews={latestnews} headlineVideos={headlineVideos} moreVideos={moreVideos} latestVideo={latestVideo} images={images} />
       </div>
 
     </div>
@@ -52,15 +52,7 @@ export async function getServerSideProps(context) {
      isHeadline
    }| order(_createdAt desc)[0...4]`
 
-   const topStoriesQuery = groq`*[_type == 'newsPost' && isHeadline == true ] {
-    _id,
-     slug,
-     title,
-     publishedAt,
-     mainImage
-   }| order(_createdAt desc)[0...8]`
-
-   const latestQuery = groq`*[_type == 'newsPost' && isHeadline == false ] {
+   const topStoriesQuery = groq`*[_type == 'newsPost' && isHeadline == true && addToBanner == false ] {
     _id,
      slug,
      title,
@@ -68,6 +60,24 @@ export async function getServerSideProps(context) {
      mainImage,
      metadesc
    }| order(_createdAt desc)[0...8]`
+
+   const latestQuery = groq`*[_type == 'newsPost' && isHeadline == false && addToBanner == false ] {
+    _id,
+     slug,
+     title,
+     publishedAt,
+     mainImage,
+     metadesc
+   }| order(_createdAt desc)[0...8]`
+
+   const forBannerQuery = groq`*[_type == 'newsPost' && isHeadline == false && addToBanner == true ] {
+    _id,
+     slug,
+     title,
+     publishedAt,
+     mainImage,
+     metadesc
+   }| order(_createdAt desc)[0]`
 
   const topStories = await sanityClient.fetch(topStoriesQuery)
 
@@ -81,9 +91,12 @@ export async function getServerSideProps(context) {
 
   const headlineVideos = await sanityClient.fetch(headlineVideosQuery)
 
+  const headline = await sanityClient.fetch(forBannerQuery)
+
   return {
     props: {
       images,
+      headline,
       latestVideo,
       latestnews,
       topStories,

@@ -22,25 +22,25 @@ const NewsPostPage = ({ newspost, latestnews }) => {
                     <div className='flex flex-row-reverse items-center px-2'>
                         <div className='mt-3 space-x-1'>
                             <FacebookShareButton
-                                url={`${currentUrl}/video/${newspost.slug.current}`}
+                                url={`${currentUrl}/newspost/${newspost.slug.current}`}
                             >
                                 <FacebookIcon size={35} round />
                             </FacebookShareButton>
 
                             <TwitterShareButton
-                                url={`${currentUrl}/video/${newspost.slug.current}`}
+                                url={`${currentUrl}/newspost/${newspost.slug.current}`}
                             >
                                 <TwitterIcon size={35} round />
                             </TwitterShareButton>
 
                             <WhatsappShareButton
-                                url={`${currentUrl}/video/${newspost.slug.current}`}
+                                url={`${currentUrl}/newspost/${newspost.slug.current}`}
                             >
                                 <WhatsappIcon size={35} round />
                             </WhatsappShareButton>
 
                             <PinterestShareButton
-                                url={`${currentUrl}/video/${newspost.slug.current}`}
+                                url={`${currentUrl}/newspost/${newspost.slug.current}`}
                             >
                                 <PinterestIcon size={35} round />
                             </PinterestShareButton>

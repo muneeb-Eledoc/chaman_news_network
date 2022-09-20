@@ -16,7 +16,7 @@ const VideoItem = ({video}) => {
         </div>
       </div>
       <div>
-          <h1 className='text-xs leading-8 text-right mr-2'>{video.title.substring(0, 70)}</h1>
+          <h1 className='text-xs md:text-sm leading-8 text-right mr-2 tracking-wide'>{video.title.substring(0, 70)}</h1>
       </div>
     </div>
     </Link>)
