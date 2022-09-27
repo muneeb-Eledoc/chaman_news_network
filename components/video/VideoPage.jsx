@@ -22,12 +22,7 @@ const VideoPage = ({video, relatedVideos}) => {
             <div>
                 <h1 className="text-right mr-2 text-2xl mt-3">{video.title}</h1>
             </div>
-            <div className='flex-1 flex justify-between my-3 px-2'>
-                <div className='mt-3'>
-                    <FacebookProvider appId="661762721736294">
-                        <Like href={`https://truthspeakss.com/video/${video.slug.current}`} colorScheme="dark" showFaces />
-                    </FacebookProvider>
-                </div>
+            <div className='flex-1 flex justify-end my-3 px-2'>
                 <div className='mt-3 space-x-2'>
                     <FacebookShareButton
                     url={`${currentUrl}/video/${video.slug.current}`}
@@ -62,14 +57,9 @@ const VideoPage = ({video, relatedVideos}) => {
                     </PinterestShareButton>
                 </div>
             </div>
-            <div className="flex-1">
-            <FacebookProvider appId="661762721736294">
-                <Comments href={`https://truthspeakss.com/video/${video.slug.current}`} />
-            </FacebookProvider>
-            </div>
         </div>
         <div className="flex md:w-[40%] flex-col py-2">
-            <h1 className='text-right text-xl font-semibold pb-2 border-r-4 border-slate-700 pr-2'>مزید ویڈیوز</h1>
+            <h1 className='section__Heading'>مزید ویڈیوز</h1>
             <hr className='my-3 mx-1'/>
             {relatedVideos.map((video)=>(
                 <VideoItem video={video} key={video._id} />

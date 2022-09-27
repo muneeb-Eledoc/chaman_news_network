@@ -33,7 +33,7 @@ const Videos = ({latestVideo, moreVideos, headlineVideos}) => {
             <VideoItem key={video._id} video={video} />
           ))}
         </div>
-        <div className="w-full">
+        <div className="flex flex-col w-full lg:mx-1">
           <h1 className='section__Heading'>نیوز ہیڈلائن</h1>
           <hr className='my-2 mx-2' />
           {headlineVideos.map((video)=>(

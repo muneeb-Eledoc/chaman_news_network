@@ -6,8 +6,9 @@ import NavBar from '../../components/NavBar'
 import NewsPostPage from '../../components/newspost/NewsPostPage'
 import { TopBar } from '../../components/TopBar'
 import { sanityClient } from '../../sanity'
+import { formatRelatedNews } from '../../utils/formatRelatedNews'
 
-const Newspost = ({yoffset, newspost, latestnews}) => {
+const Newspost = ({yoffset, newspost, latestnews, relatedNews}) => {
   return newspost ? (
     <div>
       <Head>
@@ -18,7 +19,7 @@ const Newspost = ({yoffset, newspost, latestnews}) => {
       <div className='xl:container m-auto bg-white shadow-lg'>
         <TopBar yoffset={yoffset} />
         <NavBar yoffset={yoffset} />
-        <NewsPostPage latestnews={latestnews} newspost={newspost} />
+        <NewsPostPage latestnews={latestnews} newspost={newspost} relatedNews={relatedNews}/>
       </div>
     </div>
   ) : (
@@ -68,24 +69,24 @@ export async function getServerSideProps(context) {
     }
     const latestnews = await sanityClient.fetch(latestQuery)
 
-    let tags = newspost.categories
+    let categories = newspost.categories
     let slug = newspost.slug.current
 
-    const relatedNewsQuery = groq`*[_type == 'newsPost' &&  count(($tags)[@ in ^.cat]) > 0 && slug.current != $slug ] {
-        _id,
-        slug,
-        title,
-        publishedAt,
-        mainImage,
-        metadesc
-       }| order(_createdAt desc)`
+    const relatedNewsQuery = groq`*[_type == 'newsPost' && $catRef in categories[]._ref && $slug != slug.current] {
+      _id,
+     slug,
+     title,
+     publishedAt,
+     mainImage,  
+    }| order(_createdAt desc)`
 
-    const relatedNews = await sanityClient.fetch(relatedNewsQuery, {tags, slug})
+    const relatedNews = formatRelatedNews(await Promise.all(categories.map((cat)=> sanityClient.fetch(relatedNewsQuery, {catRef: cat._ref, slug}))))
 
     return {
       props: {
         newspost,
-        latestnews
+        latestnews,
+        relatedNews
       }
     }
   }

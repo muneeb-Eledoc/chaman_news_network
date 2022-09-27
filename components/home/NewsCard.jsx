@@ -5,7 +5,7 @@ import { urlFor } from '../../sanity'
 const NewsCard = ({story}) => {
   return (
     <Link href={'/newspost/'+story.slug.current}>
-    <div className='cursor-pointer p-1 bg-gray-50 w-full shadow active:scale-95 active:bg-gray-100 rounded hover:scale-105 transition-all duration-100'>
+    <div className='cursor-pointer p-1 bg-gray-50 w-full shadow active:scale-95 active:bg-gray-100 rounded border border-slate-100 transition-all duration-100'>
         <div className="flex">
           <img className='w-full h-32 sm:h-48 rounded object-cover border border-gray-200' loading='lazy' src={urlFor(story.mainImage).url()} alt="" />
         </div>

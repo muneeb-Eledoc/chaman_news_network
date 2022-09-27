@@ -9,7 +9,7 @@ import { urlFor } from '../../sanity';
 import NewsCard from './NewsCard';
 import NewsCardHorizontal from '../home/NewsCardHorizontal';
 
-const NewsPostPage = ({ newspost, latestnews }) => {
+const NewsPostPage = ({ newspost, latestnews, relatedNews }) => {
     moment.locale('ur')
     return (
         <div className='flex flex-col'>
@@ -64,23 +64,23 @@ const NewsPostPage = ({ newspost, latestnews }) => {
                     </div>
                     <hr className="my-3 mx-2" />
                     <div className="flex flex-col p-1">
-                        <h1 className='text-right text-xl font-semibold pb-2 border-r-4 border-teal-700 pr-2'>مزید</h1>
+                        <h1 className='section__Heading'>مزید</h1>
                         <hr className="my-2 mx-2" />
                         <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-2 justify-items-center">
-                            <NewsCard newspost={newspost} />
-                            <NewsCard newspost={newspost} />
-                            <NewsCard newspost={newspost} />
-                            <NewsCard newspost={newspost} />
-                            <NewsCard newspost={newspost} />
+                            {relatedNews.map((post)=>(
+                                <NewsCard key={post._id} newspost={post} />
+                            ))}
                         </div>
                     </div>
                 </div>
                 <div className="flex w-full lg:w-[35%] flex-col">
-                    <h1 className='text-right text-xl font-semibold pb-2 border-r-4 border-teal-700 pr-2'>تازہ ترین</h1>
+                    <h1 className='section__Heading'>تازہ ترین</h1>
                     <hr className="my-2 mx-2" />
-                    {latestnews.map((post)=>(
-                        <NewsCardHorizontal key={post._id} latest={post} />
-                    ))}
+                    <div className="flex flex-col space-y-3">
+                        {latestnews.map((post)=>(
+                            <NewsCardHorizontal key={post._id} latest={post} />
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>

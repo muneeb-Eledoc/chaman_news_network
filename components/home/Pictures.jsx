@@ -11,7 +11,7 @@ const Pictures = ({images}) => {
        <hr className='my-2 mx-1'/>
        <div className="flex p-1 m-1 justify-between border border-gray-200 shadow rounded-md flex-wrap">
         {images.map((image, index) => (
-          <img onClick={()=> setImageToOpen(urlFor(image.image).url())} key={image._id} loading="lazy" className='w-[49%] cursor-pointer shadow h-32 md:h-44 lg:h-28 rounded-md my-1 object-cover md:hover:scale-125 transition-all duration-75' src={urlFor(image.image).url()} alt="" />
+          <img onClick={()=> setImageToOpen(urlFor(image.image).url())} key={image._id} loading="lazy" className='w-[49%] cursor-pointer shadow h-32 md:h-44 lg:h-28 rounded-md my-1 object-cover md:hover:scale-105 transition-all duration-75' src={urlFor(image.image).url()} alt="" />
         ))}
        </div>
        <ImageModal imageToOpen={imageToOpen} setImageToOpen={setImageToOpen} />
