@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import '../styles/globals.css'
 import NextNProgress from "nextjs-progressbar";
+import { sanityClient } from '../sanity';
 
 function MyApp({ Component, pageProps }) {
   const [yoffset, setYoffset] = useState(0)
+  const [links, setLinks] = useState([])
 
   useEffect(()=>{
     const scrollCallBack = ()=>{
@@ -15,6 +17,16 @@ function MyApp({ Component, pageProps }) {
     }
   }, [])
 
+  useEffect(() => {
+    const fetchLinks = async ()=>{
+      const q = `*[_type == 'category' && addToNav == true]{_id, title}| order(_createdAt desc)`
+      const data = await sanityClient.fetch(q)
+      setLinks(data)
+    }
+    fetchLinks()
+  }, [])
+  
+
   return <>
   <NextNProgress 
   color="#1e293b"
@@ -24,7 +36,7 @@ function MyApp({ Component, pageProps }) {
   showOnShallow={true}
   options={{ showSpinner: false }}
   />
-  <Component yoffset={yoffset} {...pageProps} />
+  <Component links={links} yoffset={yoffset} {...pageProps} />
   </>
 }
 

@@ -5,5 +5,10 @@ export const formatRelatedNews = (news)=>{
             newsposts.push(newspost)
         })
     });
-    return newsposts
+
+    let uniqueObjArray = [
+        ...new Map(newsposts.map((item) => [item["_id"], item])).values(),
+    ];
+
+    return uniqueObjArray
 }

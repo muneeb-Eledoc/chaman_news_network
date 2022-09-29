@@ -6,7 +6,7 @@ import { sanityClient } from '../sanity'
 import { groq } from 'next-sanity'
 import Footer from '../components/footer/Footer'
 
-export default function Home({ images, yoffset, latestVideo, moreVideos, headlineVideos, topStories, latestnews, headline }) {
+export default function Home({ images, yoffset, latestVideo, moreVideos, headlineVideos, topStories, latestnews, headline, links }) {
 
   return (
     <div className='bg-gray-50 m-0 p-0'>
@@ -18,10 +18,10 @@ export default function Home({ images, yoffset, latestVideo, moreVideos, headlin
 
       <div className='xl:container m-auto bg-white shadow-lg'>
         <TopBar yoffset={yoffset} />
-        <NavBar yoffset={yoffset} />
+        <NavBar yoffset={yoffset} links={links} />
         <HomeContent topStories={topStories} headline={headline} latestnews={latestnews} headlineVideos={headlineVideos} moreVideos={moreVideos} latestVideo={latestVideo} images={images} />
       </div>
-      <Footer />
+      <Footer links={links}/>
     </div>
   )
 }
@@ -30,7 +30,7 @@ export async function getServerSideProps(context) {
   const query = groq`*[_type == 'images' ] {
     _id,
     ...
-  } | order(_createdAt desc)`
+  } | order(_createdAt desc)[0...17]`
 
   const latestVideoQuery = groq`*[_type == 'videos' ] {
     _id,
@@ -60,7 +60,7 @@ export async function getServerSideProps(context) {
      publishedAt,
      mainImage,
      metadesc
-   }| order(_createdAt desc)[0...8]`
+   }| order(_createdAt desc)[0...7]`
 
   const latestQuery = groq`*[_type == 'newsPost' && isHeadline == false && addToBanner == false ] {
     _id,

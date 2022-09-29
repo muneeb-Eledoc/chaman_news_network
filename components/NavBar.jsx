@@ -1,19 +1,10 @@
 import { Bars3Icon } from '@heroicons/react/24/outline'
+import Link from 'next/link'
 import React from 'react'
 import { useState } from 'react'
 // 'مرکزی صفحہ',
-const links = [
-  'اخبار',
-  'پاکستان',
-  '1 مرکزی صفحہ',
-  'اخبار 1',
-  'پاکستان 1',
-  '2 مرکزی صفحہ',
-  'اخبار2 1',
-  'پاکستان 21'
-]
 
-const NavBar = ({ yoffset }) => {
+const NavBar = ({ yoffset, links }) => {
   const [showMenu, setShowMenu] = useState(false)
 
   return (
@@ -24,11 +15,18 @@ const NavBar = ({ yoffset }) => {
         {yoffset > 117 && <div className="shadow absolute left-2 top-[7px] ">
           <img className='h-11 shadow' src="/index.jpg" alt="" />
         </div>}
-        <div className='flex flex-row-reverse'>
-          {links.map((link) => (
-            <div key={link} className='text-white py-3 px-3 rounded hover:bg-yellow-400 hover:text-black transition-all duration-300 hover:shadow cursor-pointer text-sm hidden md:block'>
-              {link}
+        <div className='flex flex-row-reverse items-center'>
+          <Link href='/'>
+          <div className='text-white pb-1 pt-2 px-2 rounded hover:text-yellow-400 transition-all duration-300 cursor-pointer text-sm hidden md:block'>
+          مرکزی صفحہ
             </div>
+          </Link>
+          {links.map((link) => (
+            <Link key={link._id} href={`/category/${link._id}`}>
+            <div className='text-white pb-1 pt-2 px-2 rounded hover:text-yellow-400 transition-all duration-300 cursor-pointer text-sm hidden md:block'>
+              {link.title}
+            </div>
+            </Link>
           ))}
         </div>
         <div onClick={() => setShowMenu(true)} className='block md:hidden absolute right-2 top-[16px] shadow cursor-pointer bg-green-500 rounded active:bg-gray-800'>
@@ -39,6 +37,21 @@ const NavBar = ({ yoffset }) => {
         <svg onClick={() => setShowMenu(false)} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8 text-white absolute top-2 right-2 shadow rounded-full cursor-pointer hover:scale-125 transition-all duration-100 ease-out">
           <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
+
+        <div className='flex flex-col space-y-2 mt-12 px-1'>
+          <Link href='/'>
+          <div className='text-white text-center pb-1 pt-2 px-2 rounded hover:text-yellow-400 transition-all duration-300 cursor-pointer text-sm block md:hidden'>
+          مرکزی صفحہ
+            </div>
+          </Link>
+          {links.map((link) => (
+            <Link key={link._id} href={`/category/${link._id}`}>
+            <div className='text-white text-center pb-1 pt-2 px-2 rounded hover:text-yellow-400 transition-all duration-300 cursor-pointer text-sm block md:hidden'>
+              {link.title}
+            </div>
+            </Link>
+          ))}
+        </div>
       </div>
     </>
   )

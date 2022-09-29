@@ -2,12 +2,13 @@ import { groq } from 'next-sanity'
 import Head from 'next/head'
 import Link from 'next/link'
 import React, { useEffect } from 'react'
+import Footer from '../../components/footer/Footer'
 import NavBar from '../../components/NavBar'
 import { TopBar } from '../../components/TopBar'
 import VideoPage from '../../components/video/VideoPage'
 import { sanityClient } from '../../sanity'
 
-const Video = ({ video, yoffset, relatedVideos}) => {
+const Video = ({ video, yoffset, relatedVideos, links}) => {
   
   return video ? (
     <div>
@@ -18,9 +19,10 @@ const Video = ({ video, yoffset, relatedVideos}) => {
       </Head>
       <div className='xl:container m-auto bg-white shadow-lg'>
         <TopBar yoffset={yoffset} />
-        <NavBar yoffset={yoffset} />
+        <NavBar yoffset={yoffset} links={links} />
         <VideoPage video={video} relatedVideos={relatedVideos} />
       </div>
+      <Footer links={links}/>
     </div>
   ): (
     <div>

@@ -56,6 +56,6 @@
     @apply bg-[#0F3460] shadow px-4 pb-3 pt-1 rounded font-thin text-white hover:bg-[#16213E] active:bg-[#533483]
 }
 .section__Heading{
-    @apply text-right text-lg font-semibold pb-[14px] pt-1 rounded-[2px] shadow text-white bg-slate-800 pr-2 mt-6 lg:mt-0
+    @apply text-right text-lg font-semibold pb-[14px] pt-1 rounded-[2px] shadow text-white bg-slate-800 pr-2 mt-4 lg:mt-0
 }
 @tailwind utilities;

@@ -2,13 +2,14 @@ import { groq } from 'next-sanity'
 import Head from 'next/head'
 import Link from 'next/link'
 import React from 'react'
+import Footer from '../../components/footer/Footer'
 import NavBar from '../../components/NavBar'
 import NewsPostPage from '../../components/newspost/NewsPostPage'
 import { TopBar } from '../../components/TopBar'
 import { sanityClient } from '../../sanity'
 import { formatRelatedNews } from '../../utils/formatRelatedNews'
 
-const Newspost = ({yoffset, newspost, latestnews, relatedNews}) => {
+const Newspost = ({yoffset, newspost, latestnews, relatedNews, links}) => {
   return newspost ? (
     <div>
       <Head>
@@ -18,9 +19,10 @@ const Newspost = ({yoffset, newspost, latestnews, relatedNews}) => {
       </Head>
       <div className='xl:container m-auto bg-white shadow-lg'>
         <TopBar yoffset={yoffset} />
-        <NavBar yoffset={yoffset} />
+        <NavBar yoffset={yoffset} links={links}/>
         <NewsPostPage latestnews={latestnews} newspost={newspost} relatedNews={relatedNews}/>
       </div>
+      <Footer links={links} />
     </div>
   ) : (
     <div>
