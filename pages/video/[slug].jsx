@@ -6,7 +6,7 @@ import Footer from '../../components/footer/Footer'
 import NavBar from '../../components/NavBar'
 import { TopBar } from '../../components/TopBar'
 import VideoPage from '../../components/video/VideoPage'
-import { sanityClient } from '../../sanity'
+import { sanityClient, urlFor } from '../../sanity'
 
 const Video = ({ video, yoffset, relatedVideos, links}) => {
   
@@ -15,6 +15,10 @@ const Video = ({ video, yoffset, relatedVideos, links}) => {
       <Head>
         <title>{video.title + ' | Truth Speaks'}</title>
         <meta name="description" content={video.title + " | Truth Speaks"} />
+        <meta property="og:image" content={urlFor(video.thumbnail).url()} />
+        <meta property="og:image:width" content="480" />
+        <meta property="og:image:height" content="360" />
+        <meta property="og:site_name" content="Truth Speaks" />
         <link rel="icon" href="/index.jpg" />
       </Head>
       <div className='xl:container m-auto bg-white shadow-lg'>

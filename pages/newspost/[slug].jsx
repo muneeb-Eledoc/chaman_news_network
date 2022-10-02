@@ -6,7 +6,7 @@ import Footer from '../../components/footer/Footer'
 import NavBar from '../../components/NavBar'
 import NewsPostPage from '../../components/newspost/NewsPostPage'
 import { TopBar } from '../../components/TopBar'
-import { sanityClient } from '../../sanity'
+import { sanityClient, urlFor } from '../../sanity'
 import { formatRelatedNews } from '../../utils/formatRelatedNews'
 
 const Newspost = ({yoffset, newspost, latestnews, relatedNews, links}) => {
@@ -15,6 +15,10 @@ const Newspost = ({yoffset, newspost, latestnews, relatedNews, links}) => {
       <Head>
         <title>{newspost.title + ' | Truth Speaks'}</title>
         <meta name="description" content={newspost.metadesc + ' | Truth Speaks'} />
+        <meta property="og:image" content={urlFor(newspost.mainImage).url()} />
+        <meta property="og:image:width" content="480" />
+        <meta property="og:image:height" content="360" />
+        <meta property="og:site_name" content="Truth Speaks" />
         <link rel="icon" href="/index.jpg" />
       </Head>
       <div className='xl:container m-auto bg-white shadow-lg'>
