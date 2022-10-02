@@ -3,7 +3,6 @@ import NavBar from '../components/NavBar'
 import HomeContent from '../components/home/Home'
 import { TopBar } from '../components/TopBar'
 import { sanityClient } from '../sanity'
-import { groq } from 'next-sanity'
 import Footer from '../components/footer/Footer'
 
 export default function Home({ images, yoffset, latestVideo, moreVideos, headlineVideos, topStories, latestnews, headline, links }) {
@@ -27,17 +26,17 @@ export default function Home({ images, yoffset, latestVideo, moreVideos, headlin
 }
 
 export async function getServerSideProps(context) {
-  const query = groq`*[_type == 'images' ] {
+  const query = `*[_type == 'images' ] {
     _id,
     ...
   } | order(_createdAt desc)[0...17]`
 
-  const latestVideoQuery = groq`*[_type == 'videos' ] {
+  const latestVideoQuery = `*[_type == 'videos' ] {
     _id,
     ...
   } | order(_createdAt desc)[0]`
 
-  const moreVideosQuery = groq`*[_type == 'videos'] {
+  const moreVideosQuery = `*[_type == 'videos'] {
     _id,
      slug,
      thumbnail,
@@ -45,7 +44,7 @@ export async function getServerSideProps(context) {
      _createdAt
    }| order(_createdAt desc)[1...5]`
 
-  const headlineVideosQuery = groq`*[_type == 'videos' && isHeadline == true] {
+  const headlineVideosQuery = `*[_type == 'videos' && isHeadline == true] {
     _id,
      slug,
      thumbnail,
@@ -53,7 +52,7 @@ export async function getServerSideProps(context) {
      isHeadline
    }| order(_createdAt desc)[0...4]`
 
-  const topStoriesQuery = groq`*[_type == 'newsPost' && isHeadline == true && addToBanner == false ] {
+  const topStoriesQuery = `*[_type == 'newsPost' && isHeadline == true && addToBanner == false ] {
     _id,
      slug,
      title,
@@ -62,7 +61,7 @@ export async function getServerSideProps(context) {
      metadesc
    }| order(_createdAt desc)[0...7]`
 
-  const latestQuery = groq`*[_type == 'newsPost' && isHeadline == false && addToBanner == false ] {
+  const latestQuery = `*[_type == 'newsPost' && isHeadline == false && addToBanner == false ] {
     _id,
      slug,
      title,
@@ -71,7 +70,7 @@ export async function getServerSideProps(context) {
      metadesc
    }| order(_createdAt desc)[0...8]`
 
-  const forBannerQuery = groq`*[_type == 'newsPost' && isHeadline == false && addToBanner == true ] {
+  const forBannerQuery = `*[_type == 'newsPost' && isHeadline == false && addToBanner == true ] {
     _id,
      slug,
      title,
@@ -80,7 +79,7 @@ export async function getServerSideProps(context) {
      metadesc
    }| order(_createdAt desc)[0]`
 
-  const catagoryQuery = groq`*[_type == 'category' && addToNav == true] {
+  const catagoryQuery = `*[_type == 'category' && addToNav == true] {
     _id,
    ...
    }| order(_createdAt desc)`

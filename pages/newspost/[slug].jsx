@@ -1,7 +1,6 @@
 import { groq } from 'next-sanity'
 import Head from 'next/head'
 import Link from 'next/link'
-import React from 'react'
 import Footer from '../../components/footer/Footer'
 import NavBar from '../../components/NavBar'
 import NewsPostPage from '../../components/newspost/NewsPostPage'
@@ -52,12 +51,12 @@ const Newspost = ({yoffset, newspost, latestnews, relatedNews, links}) => {
 export async function getServerSideProps(context) {
     const { params } = context
   
-    const query = groq`*[_type == 'newsPost' && slug.current == '${params.slug}'] {
+    const query = `*[_type == 'newsPost' && slug.current == '${params.slug}'] {
       _id,
       ...
     }[0]`
     
-    const latestQuery = groq`*[_type == 'newsPost'] {
+    const latestQuery = `*[_type == 'newsPost'] {
         _id,
          slug,
          title,
