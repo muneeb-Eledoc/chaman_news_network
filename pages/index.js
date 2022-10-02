@@ -11,6 +11,7 @@ export default function Home({ images, yoffset, latestVideo, moreVideos, headlin
     <div className='bg-gray-50 m-0 p-0'>
       <Head>
         <title>Truth Speaks</title>
+        <meta name="google-site-verification" content="kcYzfPJkKq9bMhND4L3ZF_yvEbBZn1UtMmXq8PDuX0I" />
         <meta name="description" content="Truth Speaks" />
         <link rel="icon" href="/index.jpg" />
       </Head>
