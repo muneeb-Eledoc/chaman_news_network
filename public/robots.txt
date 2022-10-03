@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.truthspeaksnews.com
+
+# Sitemaps
+Sitemap: https://www.truthspeaksnews.com/sitemap.xml
