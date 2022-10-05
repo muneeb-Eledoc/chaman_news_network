@@ -10,9 +10,18 @@ export default function Home({ images, yoffset, latestVideo, moreVideos, headlin
   return (
     <div className='bg-gray-50 m-0 p-0'>
       <Head>
-        <title>Truth Speaks</title>
+        <title>Truth Speaks News</title>
+        <meta name="description" content="Truth Speaks News" />
+        <meta property="og:title" content="Truth Speaks News" />
+    
+        <meta property="og:site_name" content="Truth Speaks News" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://truthspeaksnews.com/" />
+
         <meta name="google-site-verification" content="kcYzfPJkKq9bMhND4L3ZF_yvEbBZn1UtMmXq8PDuX0I" />
-        <meta name="description" content="Truth Speaks" />
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <link rel="icon" href="/index.jpg" />
       </Head>
 
