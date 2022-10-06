@@ -53,7 +53,7 @@ const Footer = ({links}) => {
         </div>
         <hr className="my-6 border-gray-300 sm:mx-auto lg:my-6" />
         <div className="sm:flex sm:items-center sm:justify-between">
-          <span className="text-sm text-gray-500 sm:text-center dark:text-gray-600 font-sans">© 2022 Truth Speaks™. All Rights Reserved.
+          <span className="text-sm text-gray-500 sm:text-center dark:text-gray-600 font-sans">© {new Date().getFullYear()} Truth Speaks News™. All Rights Reserved.
           </span>
           <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
           </div>

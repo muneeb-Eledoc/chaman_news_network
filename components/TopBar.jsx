@@ -3,9 +3,11 @@ import React from 'react'
 
 export const TopBar = () => {
   return (
-    <div className='py-3 '>
+    <div className='py-2 md:py-3 flex justify-center md:justify-start'>
       <Link href='/'>
-        <img className='h-[90px] rounded cursor-pointer ml-2' src="/index.jpg" alt="" />
+        <a>
+          <img className='h-[90px] rounded cursor-pointer ml-2 shadow' src="/index.jpg" alt="Truth Speaks News" />
+        </a>
       </Link>
     </div>
   )

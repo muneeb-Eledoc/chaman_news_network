@@ -1,1 +1,1 @@
-export const currentUrl = 'https://truthspeaks.vercel.app'
+export const currentUrl = 'https://www.truthspeaksnews.com'

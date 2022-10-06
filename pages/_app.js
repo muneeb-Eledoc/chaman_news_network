@@ -29,10 +29,10 @@ function MyApp({ Component, pageProps }) {
 
   return <>
   <NextNProgress 
-  color="#1e293b"
+  color="red"
   startPosition={0.3}
   stopDelayMs={200}
-  height={3}
+  height={2}
   showOnShallow={true}
   options={{ showSpinner: false }}
   />
