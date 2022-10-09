@@ -38,7 +38,8 @@ export default function Home({ images, yoffset, latestVideo, moreVideos, headlin
 export async function getServerSideProps(context) {
   const query = `*[_type == 'images' ] {
     _id,
-    ...
+    image,
+    _createdAt
   } | order(_createdAt desc)[0...17]`
 
   const latestVideoQuery = `*[_type == 'videos' ] {
@@ -69,7 +70,7 @@ export async function getServerSideProps(context) {
      publishedAt,
      mainImage,
      metadesc
-   }| order(_createdAt desc)[0...7]`
+   }| order(publishedAt desc)[0...7]`
 
   const latestQuery = `*[_type == 'newsPost' && isHeadline == false && addToBanner == false ] {
     _id,
@@ -78,7 +79,7 @@ export async function getServerSideProps(context) {
      publishedAt,
      mainImage,
      metadesc
-   }| order(_createdAt desc)[0...8]`
+   }| order(publishedAt desc)[0...8]`
 
   const forBannerQuery = `*[_type == 'newsPost' && isHeadline == false && addToBanner == true ] {
     _id,
@@ -87,7 +88,7 @@ export async function getServerSideProps(context) {
      publishedAt,
      mainImage,
      metadesc
-   }| order(_createdAt desc)[0]`
+   }| order(publishedAt desc)[0]`
 
   const catagoryQuery = `*[_type == 'category' && addToNav == true] {
     _id,

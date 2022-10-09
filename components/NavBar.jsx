@@ -17,15 +17,19 @@ const NavBar = ({ yoffset, links }) => {
         </div>}
         <div className='flex flex-row-reverse items-center'>
           <Link href='/'>
-          <div className='text-white pb-1 pt-2 px-2 rounded hover:text-yellow-400 transition-all duration-300 cursor-pointer text-sm hidden md:block'>
-          مرکزی صفحہ
-            </div>
+            <a>
+              <div className='text-white pb-1 pt-2 px-2 rounded hover:text-yellow-400 transition-all duration-300 cursor-pointer text-sm hidden md:block'>
+                مرکزی صفحہ
+              </div>
+            </a>
           </Link>
           {links.map((link) => (
             <Link key={link._id} href={`/category/${link._id}`}>
-            <div className='text-white pb-1 pt-2 px-2 rounded hover:text-yellow-400 transition-all duration-300 cursor-pointer text-sm hidden md:block'>
-              {link.title}
-            </div>
+              <a>
+                <div className='text-white pb-1 pt-2 px-2 rounded hover:text-yellow-400 transition-all duration-300 text-sm hidden md:block'>
+                  {link.title}
+                </div>
+              </a>
             </Link>
           ))}
         </div>
@@ -40,15 +44,19 @@ const NavBar = ({ yoffset, links }) => {
 
         <div className='flex flex-col space-y-2 mt-12 px-1'>
           <Link href='/'>
-          <div className='text-white text-center pb-1 pt-2 px-2 rounded hover:text-yellow-400 transition-all duration-300 cursor-pointer text-sm block md:hidden'>
-          مرکزی صفحہ
-            </div>
+            <a>
+              <div className='text-white text-center pb-1 pt-2 px-2 rounded hover:text-yellow-400 transition-all duration-300 cursor-pointer text-sm block md:hidden'>
+                مرکزی صفحہ
+              </div>
+            </a>
           </Link>
           {links.map((link) => (
             <Link key={link._id} href={`/category/${link._id}`}>
-            <div className='text-white text-center pb-1 pt-2 px-2 rounded hover:text-yellow-400 transition-all duration-300 cursor-pointer text-sm block md:hidden'>
-              {link.title}
-            </div>
+              <a>
+                <div className='text-white text-center pb-1 pt-2 px-2 rounded hover:text-yellow-400 transition-all duration-300 cursor-pointer text-sm block md:hidden'>
+                  {link.title}
+                </div>
+              </a>
             </Link>
           ))}
         </div>

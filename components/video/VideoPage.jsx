@@ -26,32 +26,24 @@ const VideoPage = ({video, relatedVideos}) => {
                 <div className='mt-3 space-x-2'>
                     <FacebookShareButton
                     url={`${currentUrl}/video/${video.slug.current}`}
-                    // quote={'next-share is a social share buttons for your next React apps.'}
-                    // hashtag={'#nextshare'}
                     >
                     <FacebookIcon size={35} round />
                     </FacebookShareButton>
 
                     <TwitterShareButton
                      url={`${currentUrl}/video/${video.slug.current}`}
-                    //  quote={'next-share is a social share buttons for your next React apps.'}
-                    //  hashtag={'#nextshare'}
                      >
                     <TwitterIcon size={35} round />
                     </TwitterShareButton>
 
                     <WhatsappShareButton
                      url={`${currentUrl}/video/${video.slug.current}`}
-                    //  quote={'next-share is a social share buttons for your next React apps.'}
-                    //  hashtag={'#nextshare'}
                      >
                     <WhatsappIcon size={35} round />
                     </WhatsappShareButton>
 
                     <PinterestShareButton
                      url={`${currentUrl}/video/${video.slug.current}`}
-                    //  quote={'next-share is a social share buttons for your next React apps.'}
-                    //  hashtag={'#nextshare'}
                      >
                     <PinterestIcon size={35} round />
                     </PinterestShareButton>

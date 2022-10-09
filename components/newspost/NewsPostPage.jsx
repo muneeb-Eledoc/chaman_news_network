@@ -10,7 +10,7 @@ import NewsCard from './NewsCard';
 import NewsCardHorizontal from '../home/NewsCardHorizontal';
 
 const NewsPostPage = ({ newspost, latestnews, relatedNews }) => {
-    moment.locale('ur')
+    moment.locale('en')
     return (
         <div className='flex flex-col'>
             <hr className='my-3 mx-1' />
@@ -45,11 +45,11 @@ const NewsPostPage = ({ newspost, latestnews, relatedNews }) => {
                                 <PinterestIcon size={35} round />
                             </PinterestShareButton>
                         </div>
-                        <div className='flex items-center space-x-1 mr-3'>
-                            <span className='text-gray-500'>
+                        <div className='flex items-center space-x-1 mr-3 mt-2'>
+                            <span className='text-gray-500 font-sans'>
                                 {moment(newspost.publishedAt).format('LL')}
                             </span>
-                            <ClockIcon className='w-6 h-6 mt-1 text-gray-500' />
+                            <ClockIcon className='w-6 h-6 text-gray-500' />
                         </div>
                     </div>
                     <div className="flex justify-end p-2">
@@ -71,6 +71,9 @@ const NewsPostPage = ({ newspost, latestnews, relatedNews }) => {
                                 <NewsCard key={post._id} newspost={post} />
                             ))}
                         </div>
+                        {relatedNews.length === 0 && (
+                            <p className='text-center mt-2 text-red-500'>معذرت مزید کوئی نتیجہ نہیں</p>
+                        )}
                     </div>
                 </div>
                 <div className="flex w-full lg:w-[35%] flex-col">
