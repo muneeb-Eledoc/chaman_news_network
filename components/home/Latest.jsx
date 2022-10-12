@@ -10,7 +10,7 @@ const Latest = ({latestnews}) => {
         <div className='mb-3'>
           <Headline headline={latestnews[0]} />
         </div>
-       <div className="flex flex-col pb-2 shadow rounded space-y-2 pt-2">
+       <div className="flex flex-col pb-2 shadow space-y-2 pt-2">
         {latestnews.slice(1).map((latest, index)=>(
           <NewsCardHorizontal key={latest._id} latest={latest} />
         ))}

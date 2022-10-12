@@ -9,11 +9,15 @@ const NavBar = ({ yoffset, links }) => {
 
   return (
     <>
-      <div className='flex z-20 flex-row-reverse min-h-[60px] py-2 md:px-2 space-x-1 bg-gradient-to-b to-green-600 via-green-700 from-green-800 sticky top-0 flex-wrap' style={{
+      <div className={`flex z-20 flex-row-reverse min-h-[60px] py-2 md:px-2 space-x-1 bg-green-700 sticky top-0 flex-wrap ${yoffset > 117 && 'bg-opacity-[0.98]'}`} style={{
         boxShadow: yoffset > 117 ? '0 5px 7px -2px rgba(0,0,0,0.35)' : '0 0px 0px rgba(0,0,0,0.35)'
       }}>
         {yoffset > 117 && <div className="shadow absolute left-2 top-[7px] ">
-          <img className='h-11 shadow' src="/index.jpg" alt="" />
+          <Link href='/'>
+            <a>
+              <img className='h-11 shadow' src="/index.jpg" alt="Truth Speaks News" />
+            </a>
+          </Link>
         </div>}
         <div className='flex flex-row-reverse items-center'>
           <Link href='/'>

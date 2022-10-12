@@ -18,7 +18,7 @@ const Headline = ({ headline }) => {
                   <h1 className='text-shadow text-right leading-[78px] text-[24px] text-white tracking-wide'>{headline.title}</h1>
                 </div>
               </div>
-              <span className='absolute top-0 right-0 bg-opacity-30 hover:bg-opacity-100 transition-all duration-500 backdrop-blur-sm time__ago text-[10px] bg-gray-500 px-2 pt-[2px] pb-[2px] rounded-bl-lg text-gray-100 font-sans font-thin'><TimeAgo date={headline.publishedAt} /></span>
+              <span className='absolute top-1 right-1 bg-opacity-30 hover:bg-opacity-100 transition-all duration-500 backdrop-blur-sm time__ago text-[10px] bg-gray-500 px-2 pt-[2px] pb-[2px] rounded-lg text-gray-100 font-sans font-thin'><TimeAgo date={headline.publishedAt} /></span>
               <div className="absolute top-[30%] left-1 flex space-y-1 flex-col">
                 <div className="opacity-60 hover:opacity-100 transition-all duration-200">
                   <TwitterShareButton

@@ -56,7 +56,7 @@
     @apply bg-[#0F3460] shadow px-4 pb-3 pt-1 rounded font-thin text-white hover:bg-[#16213E] active:bg-[#533483]
 }
 .section__Heading{
-    @apply text-right text-lg font-semibold pb-[14px] pt-1 shadow text-white bg-gradient-to-b to-slate-600 via-slate-700 from-slate-800 pr-2 mt-4 lg:mt-0
+    @apply text-right rounded-md text-lg font-semibold pb-[14px] pt-1 shadow text-white bg-gradient-to-b to-slate-600 via-slate-700 from-slate-800 pr-2 mt-4 lg:mt-0
 }
 @tailwind utilities;
 .time__ago time{

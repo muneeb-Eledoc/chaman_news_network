@@ -11,9 +11,10 @@ export default function Home({ images, yoffset, latestVideo, moreVideos, headlin
     <div className='bg-gray-50 m-0 p-0'>
       <Head>
         <title>Truth Speaks News</title>
-        <meta name="description" content="Truth Speaks News" />
+        <meta name="description" content="Truth Speaks News is provding you, Urdu News, Urdu Poetry, Horoscope, Technology, Weather, Business, Sports, Health, Islam, Women, Show-biz, Addab, Islamic Names, Articles and Features" />
         <meta property="og:title" content="Truth Speaks News" />
-    
+        <meta name="keywords" content="truth speaks news, truth speaks news in urdu, urdu news, urdu updates, latest urdu news, breaking news in urdu, truth speaks news urdu, truth speaks news tv urdu"></meta>
+        <meta name="twitter:card" content="summary_large_image" />
         <meta property="og:site_name" content="Truth Speaks News" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://truthspeaksnews.com/" />
@@ -70,7 +71,7 @@ export async function getServerSideProps(context) {
      publishedAt,
      mainImage,
      metadesc
-   }| order(publishedAt desc)[0...7]`
+   }| order(publishedAt desc)[0...8]`
 
   const latestQuery = `*[_type == 'newsPost' && isHeadline == false && addToBanner == false ] {
     _id,

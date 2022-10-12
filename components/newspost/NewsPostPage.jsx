@@ -12,7 +12,7 @@ import NewsCardHorizontal from '../home/NewsCardHorizontal';
 const NewsPostPage = ({ newspost, latestnews, relatedNews }) => {
     moment.locale('en')
     return (
-        <div className='flex flex-col'>
+        <article className='flex flex-col'>
             <hr className='my-3 mx-1' />
             <div className="flex flex-col lg:flex-row-reverse pb-2">
                 <div className="flex w-full lg:w-[65%] flex-col">
@@ -86,7 +86,7 @@ const NewsPostPage = ({ newspost, latestnews, relatedNews }) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </article>
     )
 }
 
