@@ -38,12 +38,12 @@ const Footer = ({links}) => {
               </ul>
             </div> */}
             <div>
-              <h2 className="mb-6 text-lg font-semibold text-gray-900 uppercase dark:text-slate-800 text-right">اقسام</h2>
+              <h2 className="mb-4 text-lg font-semibold text-gray-900 uppercase dark:text-slate-800 text-right">اقسام</h2>
               <ul className="text-gray-600 dark:text-gray-400">
                 {links.map((link)=>(
-                <li key={link._id} className="mb-4 flex justify-end">
+                <li key={link._id} className="my-1 py-2 flex justify-end">
                   <Link href={`/category/${link._id}`}>
-                    <a className="hover:underline cursor-pointer text-slate-600 text-right">{link.title}</a>
+                    <a className="hover:underline cursor-pointer text-sm text-slate-600 text-right">{link.title}</a>
                   </Link>
                 </li>
                 ))}
@@ -56,22 +56,22 @@ const Footer = ({links}) => {
           <span className="text-sm text-gray-500 sm:text-center dark:text-gray-600 font-sans">© {new Date().getFullYear()} Truth Speaks News™. All Rights Reserved.
           </span>
           <div className="flex mt-4 space-x-3 sm:justify-center sm:mt-0">
-            <div className='bg-white p-1 rounded-full shadow hover:bg-green-400 transition-all duration-300'>
+            <div className='bg-white p-1 rounded-full shadow hover:scale-110 transition-all duration-100'>
               <a href="https://www.facebook.com/truthspeaknews/" target='blank'>
                   <img className='w-6 h-6 grayscale' src="/facebook.png" alt="facebook" />
               </a>
             </div>
-            <div className='bg-white p-1 rounded-full shadow hover:bg-green-400 transition-all duration-300'>
+            <div className='bg-white p-1 rounded-full shadow hover:scale-110 transition-all duration-100'>
               <a href="https://www.youtube.com/c/TruthSpeaksNews" target='blank'>
                   <img className='w-6 h-6 grayscale' src="/youtube.png" alt="facebook" />
               </a>
             </div>
-            <div className='bg-white p-1 rounded-full shadow hover:bg-green-400 transition-all duration-300'>
+            <div className='bg-white p-1 rounded-full shadow hover:scale-110 transition-all duration-100'>
               <a href="https://www.instagram.com/truthspeaksnews/" target='blank'>
                   <img className='w-6 h-6 grayscale' src="/instagram.png" alt="facebook" />
               </a>
             </div>
-            <div className='bg-white p-1 rounded-full shadow hover:bg-green-400 transition-all duration-300'>
+            <div className='bg-white p-1 rounded-full shadow hover:scale-110 transition-all duration-100'>
               <a href="https://twitter.com/truthspeaknews" target='blank'>
                   <img className='w-6 h-6 grayscale' src="/twitter.png" alt="facebook" />
               </a>

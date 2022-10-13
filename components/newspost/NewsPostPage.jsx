@@ -46,14 +46,14 @@ const NewsPostPage = ({ newspost, latestnews, relatedNews }) => {
                             </PinterestShareButton>
                         </div>
                         <div className='flex items-center space-x-1 mr-3 mt-2'>
-                            <span className='text-gray-500 font-sans'>
+                            <span className='text-gray-500 font-sans text-xs'>
                                 {moment(newspost.publishedAt).format('LL')}
                             </span>
-                            <ClockIcon className='w-6 h-6 text-gray-500' />
+                            <ClockIcon className='w-5 md:w-6 h-5 md:h-6 text-gray-500' />
                         </div>
                     </div>
-                    <div className="flex justify-end p-2">
-                        <img className='w-full lg:w-[90%] max-h-[500px] rounded' src={urlFor(newspost.mainImage).url()} alt='' />
+                    <div className="flex justify-end md:p-2">
+                        <img className='w-full lg:w-[90%] max-h-[500px] mt-1 md:rounded' src={urlFor(newspost.mainImage).url()} alt='' />
                     </div>
                     <div className='newsPost__Content'>
                         <PortableText

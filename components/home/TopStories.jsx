@@ -26,6 +26,9 @@ const TopStories = ({ topStories }) => {
         setNewposts([...newposts, ...result])
         setStartIndex(endIndex)
         setEndIndex(endIndex+4)
+        if(result.length < 4){
+          setIsEmpty(true)
+        }
       }else{
         setIsEmpty(true)
       }

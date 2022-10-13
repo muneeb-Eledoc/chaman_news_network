@@ -10,7 +10,7 @@ const Headline = ({ headline }) => {
     <div className='flex flex-col'>
       <Link href={`/newspost/${headline.slug.current}`}>
         <a>
-          <div className=' flex cursor-pointer rounded-md overflow-hidden shadow-[0_0px_6px_rgba(0,0,0,0.3)]'>
+          <div className=' flex cursor-pointer md:rounded-md overflow-hidden shadow-[0_0px_6px_rgba(0,0,0,0.3)]'>
             <div className="flex group relative overflow-hidden flex-1 rounded-r-[2px]">
               <img loading='lazy' className='h-[260px] w-full object-cover object-top' src={urlFor(headline.mainImage).url()} alt="" />
               <div className="absolute top-0 w-full h-full bg-gradient-to-t from-slate-800 to-transparent flex items-end">

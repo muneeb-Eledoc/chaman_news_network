@@ -7,8 +7,8 @@ import Videos from './videos/Videos'
 
 const HomeContent = ({images, latestVideo, moreVideos, headlineVideos, topStories, latestnews, headline}) => {
   return (
-    <div className='flex flex-col px-1'>
-        <div className="flex lg:flex-row w-full lg:space-x-2 flex-col-reverse my-4">
+    <div className='flex flex-col md:px-1'>
+        <div className="flex lg:flex-row w-full lg:space-x-2 flex-col-reverse md:my-4">
           <Pictures images={images} />
           <div className='flex flex-col lg:w-[75%]'>
             <Headline headline={headline} />

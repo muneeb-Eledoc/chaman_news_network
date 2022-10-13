@@ -62,7 +62,7 @@ export async function getServerSideProps(context) {
      thumbnail,
      title,
      isHeadline
-   }| order(_createdAt desc)[0...4]`
+   }| order(_createdAt desc)[1...5]`
 
   const topStoriesQuery = `*[_type == 'newsPost' && isHeadline == true && addToBanner == false ] {
     _id,
