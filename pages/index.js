@@ -24,6 +24,14 @@ export default function Home({ images, yoffset, latestVideo, moreVideos, headlin
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <link rel="icon" href="/index.jpg" />
       </Head>
+      
+      <div className='w-full flex-col flex justify-center items-center h-screen fixed top-0 right-0 bg-white z-50'  id='loader'>
+          <img className='w-36 rounded shadow animate-logo' src='/index.jpg' alt='Truth Speaks News' />
+          <img className='w-20 absolute bottom-20 rounded ' src='/loading2.gif' alt='Truth Speaks News' />
+          <span className='font-sans absolute bottom-10 font-medium'>
+          By<b className='font-sans text-lg'> Truth Speaks News™</b>
+          </span>
+      </div>
 
       <div className='xl:container m-auto bg-white shadow-lg'>
         <TopBar yoffset={yoffset} />

@@ -15,7 +15,7 @@ const NavBar = ({ yoffset, links }) => {
         {yoffset > 117 && <div className="shadow absolute left-2 top-[7px] ">
           <Link href='/'>
             <a>
-              <img className='h-11 shadow' src="/index.jpg" alt="Truth Speaks News" />
+              <img className='h-11 shadow animate-logo' src="/index.jpg" alt="Truth Speaks News" />
             </a>
           </Link>
         </div>}

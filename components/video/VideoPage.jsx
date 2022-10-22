@@ -8,7 +8,6 @@ import {
     PinterestShareButton,
     PinterestIcon,
   } from 'next-share';
-import { FacebookProvider, Comments, Like  } from 'react-facebook-next';
 import { currentUrl } from '../../utils/currentURL';
 import VideoItem from '../home/videos/VideoItem';
 

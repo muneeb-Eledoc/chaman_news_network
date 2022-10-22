@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import '../styles/globals.css'
 import NextNProgress from "nextjs-progressbar";
 import { sanityClient } from '../sanity';
+import Script from 'next/script'
 
 function MyApp({ Component, pageProps }) {
   const [yoffset, setYoffset] = useState(0)
@@ -37,6 +38,7 @@ function MyApp({ Component, pageProps }) {
   options={{ showSpinner: false }}
   />
   <Component links={links} yoffset={yoffset} {...pageProps} />
+  <Script src="/script.js" />
   </>
 }
 
