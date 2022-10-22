@@ -35,7 +35,7 @@ const Category = ({ yoffset, links, categoryNews }) => {
 export async function getServerSideProps(context) {
   const { params } = context
 
-  const categoryQuery = groq`*[_type == 'newsPost' && $catRef in categories[]._ref ] {
+  const categoryQuery = `*[_type == 'newsPost' && $catRef in categories[]._ref ] {
       _id,
      slug,
      title,

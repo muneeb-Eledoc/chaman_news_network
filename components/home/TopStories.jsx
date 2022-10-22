@@ -5,8 +5,8 @@ import NewsCard from './NewsCard'
 
 const TopStories = ({ topStories }) => {
   const [newposts, setNewposts] = useState(topStories)
-  const [startIndex, setStartIndex] = useState(8)
-  const [endIndex, setEndIndex] = useState(12)
+  const [startIndex, setStartIndex] = useState(10)
+  const [endIndex, setEndIndex] = useState(14)
   const [isEmpty, setIsEmpty] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
 

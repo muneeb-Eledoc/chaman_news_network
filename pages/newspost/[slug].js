@@ -88,7 +88,7 @@ export async function getServerSideProps(context) {
      title,
      publishedAt,
      mainImage,  
-    }| order(_createdAt desc)`
+    }| order(_createdAt desc)[0...8]`
 
     const relatedNews = formatRelatedNews(await Promise.all(categories.map((cat)=> sanityClient.fetch(relatedNewsQuery, {catRef: cat._ref, slug}))))
 

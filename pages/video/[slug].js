@@ -59,7 +59,7 @@ const Video = ({ video, yoffset, relatedVideos, links}) => {
 export async function getServerSideProps(context) {
   const { params } = context
 
-  const query = groq`*[_type == 'videos' && slug.current == '${params.slug}'] {
+  const query = `*[_type == 'videos' && slug.current == '${params.slug}'] {
     _id,
     ...
   }[0]`
@@ -72,14 +72,14 @@ export async function getServerSideProps(context) {
   let tags = video.tags
   let slug = video.slug.current
 
-  const relatedVideosQuery = groq`*[_type == 'videos' &&  count(($tags)[@ in ^.tags]) > 0 && slug.current != $slug ] {
+  const relatedVideosQuery = `*[_type == 'videos' &&  count(($tags)[@ in ^.tags]) > 0 && slug.current != $slug ] {
     _id,
      slug,
      thumbnail,
      title,
      isHeadline,
      tags
-   }| order(_createdAt desc)`
+   }| order(_createdAt desc)[0...14]`
 
   const relatedVideos = await sanityClient.fetch(relatedVideosQuery, {tags, slug})
 

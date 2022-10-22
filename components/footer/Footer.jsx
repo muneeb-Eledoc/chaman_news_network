@@ -53,7 +53,7 @@ const Footer = ({links}) => {
         </div>
         <hr className="my-6 border-gray-300 sm:mx-auto lg:my-6" />
         <div className="sm:flex sm:items-center sm:justify-between">
-          <span className="text-sm text-gray-500 sm:text-center dark:text-gray-600 font-sans">© {new Date().getFullYear()} Truth Speaks News™. All Rights Reserved.
+          <span className="text-sm text-gray-500 sm:text-center dark:text-gray-600 font-sans">Copyright © {new Date().getFullYear()} Truth Speaks News™. All Rights Reserved.
           </span>
           <div className="flex mt-4 space-x-3 sm:justify-center sm:mt-0">
             <div className='bg-white p-1 rounded-full shadow hover:scale-110 transition-all duration-100'>
@@ -63,17 +63,17 @@ const Footer = ({links}) => {
             </div>
             <div className='bg-white p-1 rounded-full shadow hover:scale-110 transition-all duration-100'>
               <a href="https://www.youtube.com/c/TruthSpeaksNews" target='blank'>
-                  <img className='w-6 h-6 grayscale' src="/youtube.png" alt="facebook" />
+                  <img className='w-6 h-6 grayscale' src="/youtube.png" alt="youtube" />
               </a>
             </div>
             <div className='bg-white p-1 rounded-full shadow hover:scale-110 transition-all duration-100'>
               <a href="https://www.instagram.com/truthspeaksnews/" target='blank'>
-                  <img className='w-6 h-6 grayscale' src="/instagram.png" alt="facebook" />
+                  <img className='w-6 h-6 grayscale' src="/instagram.png" alt="instagram" />
               </a>
             </div>
             <div className='bg-white p-1 rounded-full shadow hover:scale-110 transition-all duration-100'>
               <a href="https://twitter.com/truthspeaknews" target='blank'>
-                  <img className='w-6 h-6 grayscale' src="/twitter.png" alt="facebook" />
+                  <img className='w-6 h-6 grayscale' src="/twitter.png" alt="twitter" />
               </a>
             </div>
           </div>

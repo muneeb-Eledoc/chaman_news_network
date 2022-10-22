@@ -53,9 +53,9 @@ const NewsPostPage = ({ newspost, latestnews, relatedNews }) => {
                         </div>
                     </div>
                     <div className="flex justify-end md:p-2">
-                        <img className='w-full lg:w-[90%] max-h-[500px] mt-1 md:rounded' src={urlFor(newspost.mainImage).url()} alt='' />
+                        <img className='w-full lg:w-[96%] max-h-[500px] mt-1 md:rounded' src={urlFor(newspost.mainImage).url()} alt='' />
                     </div>
-                    <div className='newsPost__Content'>
+                    <div className='newsPost__Content lg:ml-3'>
                         <PortableText
                             content={newspost.body}
                             projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}

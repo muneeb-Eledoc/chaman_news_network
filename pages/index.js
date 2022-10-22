@@ -18,7 +18,6 @@ export default function Home({ images, yoffset, latestVideo, moreVideos, headlin
         <meta property="og:site_name" content="Truth Speaks News" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://truthspeaksnews.com/" />
-
         <meta name="google-site-verification" content="kcYzfPJkKq9bMhND4L3ZF_yvEbBZn1UtMmXq8PDuX0I" />
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -71,7 +70,7 @@ export async function getServerSideProps(context) {
      publishedAt,
      mainImage,
      metadesc
-   }| order(publishedAt desc)[0...8]`
+   }| order(publishedAt desc)[0...10]`
 
   const latestQuery = `*[_type == 'newsPost' && isHeadline == false && addToBanner == false ] {
     _id,
@@ -80,7 +79,7 @@ export async function getServerSideProps(context) {
      publishedAt,
      mainImage,
      metadesc
-   }| order(publishedAt desc)[0...8]`
+   }| order(publishedAt desc)[0...10]`
 
   const forBannerQuery = `*[_type == 'newsPost' && isHeadline == false && addToBanner == true ] {
     _id,
@@ -96,32 +95,33 @@ export async function getServerSideProps(context) {
    ...
    }| order(_createdAt desc)`
 
-  const topStories = await sanityClient.fetch(topStoriesQuery)
+  try{
+    const topStories = await sanityClient.fetch(topStoriesQuery)
+    const images = await sanityClient.fetch(query)
+    const latestVideo = await sanityClient.fetch(latestVideoQuery)
+    const latestnews = await sanityClient.fetch(latestQuery)
+    const moreVideos = await sanityClient.fetch(moreVideosQuery)
+    const headlineVideos = await sanityClient.fetch(headlineVideosQuery)
+    const headline = await sanityClient.fetch(forBannerQuery)
+    const catagories = await sanityClient.fetch(catagoryQuery)
 
-  const images = await sanityClient.fetch(query)
-
-  const latestVideo = await sanityClient.fetch(latestVideoQuery)
-
-  const latestnews = await sanityClient.fetch(latestQuery)
-
-  const moreVideos = await sanityClient.fetch(moreVideosQuery)
-
-  const headlineVideos = await sanityClient.fetch(headlineVideosQuery)
-
-  const headline = await sanityClient.fetch(forBannerQuery)
-
-  const catagories = await sanityClient.fetch(catagoryQuery)
-
-  return {
-    props: {
-      images,
-      catagories,
-      headline,
-      latestVideo,
-      latestnews,
-      topStories,
-      moreVideos,
-      headlineVideos
+    return {
+      props: {
+        images,
+        catagories,
+        headline,
+        latestVideo,
+        latestnews,
+        topStories,
+        moreVideos,
+        headlineVideos
+      }
+    }
+  }catch(e){
+    return {
+      props: {
+        error: e.message
+      }
     }
   }
 }
