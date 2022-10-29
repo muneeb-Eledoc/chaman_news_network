@@ -37,6 +37,11 @@
     max-height: 440px;
     max-width: 98%;
 }
+.newsPost__Content h1, .newsPost__Content h2, .newsPost__Content h3, .newsPost__Content h4, .newsPost__Content h5,.newsPost__Content h6{
+    text-align: right;
+    font-weight: 900 !important;
+    margin: 10px 0px;
+}
 .newsPost__Content h1{
     font-size: 34px;
     font-weight: 700;

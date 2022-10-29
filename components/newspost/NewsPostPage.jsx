@@ -16,58 +16,60 @@ const NewsPostPage = ({ newspost, latestnews, relatedNews }) => {
             <hr className='my-3 mx-1' />
             <div className="flex flex-col lg:flex-row-reverse pb-2">
                 <div className="flex w-full lg:w-[65%] flex-col">
-                    <div className='p-4'>
-                        <h1 className='text-right font-semibold text-2xl leading-[50px]'>{newspost.title}</h1>
-                    </div>
-                    <div className='flex flex-row-reverse items-center px-2'>
-                        <div className='mt-3 space-x-1'>
-                            <FacebookShareButton
-                                url={`${currentUrl}/newspost/${newspost.slug.current}`}
-                            >
-                                <FacebookIcon size={35} round />
-                            </FacebookShareButton>
-
-                            <TwitterShareButton
-                                url={`${currentUrl}/newspost/${newspost.slug.current}`}
-                            >
-                                <TwitterIcon size={35} round />
-                            </TwitterShareButton>
-
-                            <WhatsappShareButton
-                                url={`${currentUrl}/newspost/${newspost.slug.current}`}
-                            >
-                                <WhatsappIcon size={35} round />
-                            </WhatsappShareButton>
-
-                            <PinterestShareButton
-                                url={`${currentUrl}/newspost/${newspost.slug.current}`}
-                            >
-                                <PinterestIcon size={35} round />
-                            </PinterestShareButton>
+                    <div className="flex flex-col lg:mx-1 lg:border border-gray-200 rounded-md">
+                        <div className='p-4'>
+                            <h1 className='text-right font-semibold text-2xl leading-[50px]'>{newspost.title}</h1>
                         </div>
-                        <div className='flex items-center space-x-1 mr-3 mt-2'>
-                            <span className='text-gray-500 font-sans text-xs'>
-                                {moment(newspost.publishedAt).format('LL')}
-                            </span>
-                            <ClockIcon className='w-5 md:w-6 h-5 md:h-6 text-gray-500' />
+                        <div className='flex flex-row-reverse items-center px-2'>
+                            <div className='mt-3 space-x-1'>
+                                <FacebookShareButton
+                                    url={`${currentUrl}/newspost/${newspost.slug.current}`}
+                                >
+                                    <FacebookIcon size={35} round />
+                                </FacebookShareButton>
+
+                                <TwitterShareButton
+                                    url={`${currentUrl}/newspost/${newspost.slug.current}`}
+                                >
+                                    <TwitterIcon size={35} round />
+                                </TwitterShareButton>
+
+                                <WhatsappShareButton
+                                    url={`${currentUrl}/newspost/${newspost.slug.current}`}
+                                >
+                                    <WhatsappIcon size={35} round />
+                                </WhatsappShareButton>
+
+                                <PinterestShareButton
+                                    url={`${currentUrl}/newspost/${newspost.slug.current}`}
+                                >
+                                    <PinterestIcon size={35} round />
+                                </PinterestShareButton>
+                            </div>
+                            <div className='flex items-center space-x-1 mr-3 mt-2'>
+                                <span className='text-gray-500 font-sans text-xs'>
+                                    {moment(newspost.publishedAt).format('LL')}
+                                </span>
+                                <ClockIcon className='w-5 md:w-6 h-5 md:h-6 text-gray-500' />
+                            </div>
                         </div>
-                    </div>
-                    <div className="flex justify-end md:p-2">
-                        <img className='w-full lg:w-[96%] max-h-[500px] mt-1 md:rounded' src={urlFor(newspost.mainImage).url()} alt='' />
-                    </div>
-                    <div className='newsPost__Content lg:ml-3'>
-                        <PortableText
-                            content={newspost.body}
-                            projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}
-                            dataset={process.env.NEXT_PUBLIC_SANITY_DATASET}
-                        />
+                        <div className="flex justify-end md:p-2">
+                            <img className='w-full lg:w-full shadow max-h-[500px] mt-1 md:rounded' src={urlFor(newspost.mainImage).url()} alt='' />
+                        </div>
+                        <div className='newsPost__Content bg-white rounded-md lg:shadow lg:mb-2 lg:mx-1'>
+                            <PortableText
+                                content={newspost.body}
+                                projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}
+                                dataset={process.env.NEXT_PUBLIC_SANITY_DATASET}
+                            />
+                        </div>
                     </div>
                     <hr className="my-3 mx-2" />
                     <div className="flex flex-col p-1">
                         <h1 className='section__Heading'>مزید</h1>
                         <hr className="my-2 mx-2" />
                         <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-2 justify-items-center">
-                            {relatedNews.map((post)=>(
+                            {relatedNews.map((post) => (
                                 <NewsCard key={post._id} newspost={post} />
                             ))}
                         </div>
@@ -80,7 +82,7 @@ const NewsPostPage = ({ newspost, latestnews, relatedNews }) => {
                     <h1 className='section__Heading'>تازہ ترین</h1>
                     <hr className="my-2 mx-2" />
                     <div className="flex flex-col space-y-3">
-                        {latestnews.map((post)=>(
+                        {latestnews.map((post) => (
                             <NewsCardHorizontal key={post._id} latest={post} />
                         ))}
                     </div>
