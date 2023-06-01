@@ -37,13 +37,13 @@ function MyApp({ Component, pageProps }) {
       showOnShallow={true}
       options={{ showSpinner: false }}
     />
-    <div className='w-full flex-col flex justify-center items-center h-screen fixed top-0 right-0 bg-white z-50' id='loader'>
-      <img className='w-36 rounded shadow animate-logo' src='/index.jpg' alt='Truth Speaks News' />
-      <img className='w-20 absolute bottom-20 rounded ' src='/loading2.gif' alt='Truth Speaks News' />
+    {/* <div className='w-full flex-col flex justify-center items-center h-screen fixed top-0 right-0 bg-white z-50' id='loader'>
+      <img className='w-36 rounded shadow animate-logo' src='/index.jpg' alt='Chaman News' />
+      <img className='w-20 absolute bottom-20 rounded ' src='/loading2.gif' alt='Chaman News' />
       <span className='font-sans absolute bottom-10 font-medium'>
-        By<b className='font-sans text-lg'> Truth Speaks News™</b>
+        By<b className='font-sans text-lg'> Chaman News™</b>
       </span>
-    </div>
+    </div> */}
     <Component links={links} yoffset={yoffset} {...pageProps} />
     <Script src="/script.js" />
   </>

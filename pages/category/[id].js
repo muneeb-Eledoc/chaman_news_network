@@ -14,12 +14,12 @@ const Category = ({ yoffset, links, categoryNews }) => {
   return (
     <div>
       <Head>
-        <title>Truth Speaks News</title>
-        <meta name="description" content='Truth Speaks News' />
+        <title>Chaman News</title>
+        <meta name="description" content='Chaman News' />
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        <meta property="og:url" content={"https://truthspeaksnews.com/category/"+catId} />
+        <meta property="og:url" content={"https://chamannews.com/category/"+catId} />
         <link rel="icon" href="/index.jpg" />
       </Head>
       <div className='xl:container m-auto bg-white shadow-lg'>

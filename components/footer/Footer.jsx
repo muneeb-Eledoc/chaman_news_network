@@ -10,7 +10,7 @@ const Footer = ({links}) => {
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
             <a className="flex items-center" >
-              <img src="/index.jpg" className="mr-3 h-24 shadow rounded" alt="Truth Speaks" />
+              <img src="/index.jpg" className="mr-3 h-14 shadow rounded" alt="Truth Speaks" />
             </a>
           </div>
           <div className="grid grid-cols-1 gap-8 sm:gap-6 sm:grid-cols-1">
@@ -53,7 +53,7 @@ const Footer = ({links}) => {
         </div>
         <hr className="my-6 border-gray-300 sm:mx-auto lg:my-6" />
         <div className="sm:flex sm:items-center sm:justify-between">
-          <span className="text-sm text-gray-500 sm:text-center dark:text-gray-600 font-sans">Copyright © {new Date().getFullYear()} Truth Speaks News™. All Rights Reserved.
+          <span className="text-sm text-gray-500 sm:text-center dark:text-gray-600 font-sans">Copyright © {new Date().getFullYear()} Chaman News™. All Rights Reserved.
           </span>
           <div className="flex mt-4 space-x-3 sm:justify-center sm:mt-0">
             <div className='bg-white p-1 rounded-full shadow hover:scale-110 transition-all duration-100'>

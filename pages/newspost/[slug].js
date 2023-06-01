@@ -15,12 +15,12 @@ const Newspost = ({yoffset, newspost, latestnews, relatedNews, links}) => {
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-        <title>{newspost.title + ' | Truth Speaks News'}</title>
-        <meta name="description" content={newspost.metadesc + ' | Truth Speaks News'} />
+        <title>{newspost.title + ' | Chaman News'}</title>
+        <meta name="description" content={newspost.metadesc + ' | Chaman News'} />
         <meta property="og:image" content={urlFor(newspost.mainImage).url()} />
         <meta property="og:image:width" content="480" />
         <meta property="og:image:height" content="360" />
-        <meta property="og:site_name" content="Truth Speaks News" />
+        <meta property="og:site_name" content="Chaman News" />
         <meta property="og:url" content={"https://truthspeaksnews.com/newspost/"+newspost.slug.current} />
 
         <link rel="icon" href="/index.jpg" />

@@ -1,6 +1,6 @@
-let body = document.getElementsByTagName('body')[0]
-let loader = document.getElementById('loader')
+// let body = document.getElementsByTagName('body')[0]
+// let loader = document.getElementById('loader')
 
-body.onload = ()=>{
-    loader.style.display = 'none'
-}
+// body.onload = ()=>{
+//     loader.style.display = 'none'
+// }
