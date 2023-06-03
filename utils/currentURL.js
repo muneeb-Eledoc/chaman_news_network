@@ -1,1 +1,1 @@
-export const currentUrl = 'https://www.truthspeaksnews.com'
+export const currentUrl = 'https://www.chamannewsnetwork.com'

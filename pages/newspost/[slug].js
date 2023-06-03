@@ -21,7 +21,7 @@ const Newspost = ({yoffset, newspost, latestnews, relatedNews, links}) => {
         <meta property="og:image:width" content="480" />
         <meta property="og:image:height" content="360" />
         <meta property="og:site_name" content="Chaman News" />
-        <meta property="og:url" content={"https://truthspeaksnews.com/newspost/"+newspost.slug.current} />
+        <meta property="og:url" content={"https://chamannewsnetwork.com/newspost/"+newspost.slug.current} />
 
         <link rel="icon" href="/index.jpg" />
       </Head>
