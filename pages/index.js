@@ -10,7 +10,7 @@ export default function Home({ images, yoffset, latestVideo, moreVideos, headlin
   return (
     <div className='bg-gray-50 m-0 p-0'>
       <Head>
-        <title>Chaman News</title>
+        <title>Chaman News Network</title>
         <meta name="description" content="Chaman News is provding you, Urdu News, Urdu Poetry, Horoscope, Technology, Weather, Business, Sports, Health, Islam, Women, Show-biz, Addab, Islamic Names, Articles and Features" />
         <meta property="og:title" content="Chaman News" />
         <meta name="keywords" content="Chaman News, Chaman News in urdu, urdu news, urdu updates, latest urdu news, breaking news in urdu, Chaman News urdu, Chaman News tv urdu"></meta>
@@ -18,7 +18,7 @@ export default function Home({ images, yoffset, latestVideo, moreVideos, headlin
         <meta property="og:site_name" content="Chaman News" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://truthspeaksnews.com/" />
-        <meta name="google-site-verification" content="kcYzfPJkKq9bMhND4L3ZF_yvEbBZn1UtMmXq8PDuX0I" />
+        <meta name="google-site-verification" content="rlO8253utFqm2Usx0RcwChHYfiHyZQXen-ekCznldX8" />
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
