@@ -11,16 +11,16 @@ const Headline = ({ headline }) => {
     <div className='flex flex-col'>
       <Link href={`/newspost/${headline.slug.current}`}>
         <a>
-          <div className=' flex cursor-pointer md:rounded-md overflow-hidden shadow-[0_0px_6px_rgba(0,0,0,0.3)]'>
+          <div className=' flex cursor-pointer rounded md:rounded-md overflow-hidden '>
             <div className="flex group relative overflow-hidden flex-1 rounded-r-[2px]">
               <div className="w-full h-[275px]">
-                <Image
-                  className='object-cover object-top'
+                <img
+                  className='object-cover object-top h-full w-full'
                   src={urlFor(headline.mainImage).url()}
-                  alt=""
-                  width={220}
-                  height={'125%'}
-                  sizes="(min-width: 1578px) 100%"
+                  alt={""}
+                  // width={270}
+                  // height={190}
+                  // sizes="(min-width: 1578px) 100%"
                 />
               </div>
               {/* <img loading='lazy' className='h-[275px] w-full object-cover object-top bg-black' src={urlFor(headline.mainImage).url()} alt="" /> */}

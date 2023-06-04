@@ -6,7 +6,6 @@ import { sanityClient } from '../sanity'
 import Footer from '../components/footer/Footer'
 
 export default function Home({ images, yoffset, latestVideo, moreVideos, headlineVideos, topStories, latestnews, headline, links }) {
-
   return (
     <div className='bg-gray-50 m-0 p-0'>
       <Head>
@@ -88,7 +87,7 @@ export async function getServerSideProps(context) {
      publishedAt,
      mainImage,
      metadesc
-   }| order(publishedAt desc)[0]`
+   }| order(publishedAt desc)[0..1]`
 
   const catagoryQuery = `*[_type == 'category' && addToNav == true] {
     _id,
@@ -96,13 +95,13 @@ export async function getServerSideProps(context) {
    }| order(_createdAt desc)`
 
   try{
+    const headline = await sanityClient.fetch(forBannerQuery)
     const topStories = await sanityClient.fetch(topStoriesQuery)
     const images = await sanityClient.fetch(query)
     const latestVideo = await sanityClient.fetch(latestVideoQuery)
     const latestnews = await sanityClient.fetch(latestQuery)
     const moreVideos = await sanityClient.fetch(moreVideosQuery)
     const headlineVideos = await sanityClient.fetch(headlineVideosQuery)
-    const headline = await sanityClient.fetch(forBannerQuery)
     const catagories = await sanityClient.fetch(catagoryQuery)
 
     return {
